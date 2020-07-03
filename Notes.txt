@@ -1,0 +1,78 @@
+Python
+
+5 // 10		0
+5 / 10		0.5 
+
+5 * 10		50
+2 ** 3		8
+
+int(0.5)	0
+int(True)	1
+int(False)	0
+
+1000000 == 	1_000_000
+1e6		1_000_000
+
+"hi" *3 	"hihihi" 
+'I\'m pretty cool'
+"""Log text start here
+This line too
+and this one"""
+
+chain = ["Text", 12.9, True, ["nested", 8]] Length = 4, index start with 0
+chain[0] 	==> 'Text'
+chain[1] + 2 ==> 14.9 original list unchanged
+chain[-1]	refer to the last index of a list
+
+Add element
+chain.append(3) add at the end
+Remove value just added to the list
+chain.pop() ==>	3
+
+def greet(name, age):
+	print('hi' + name + 'I am ' + age)
+greet(age = 27, name = 'narcisse')
+
+name= 'max'
+def get_name():
+	global name 
+	name = input('Enter your name: ') 	name is forced to save in the global varaible
+
+In		check a list number = [1,2,3,4]
+1 in number 		==>	return True
+1 not in number		==>	return False
+
+Is		check the data object data = [1,2,3,4]
+data == number		==>	return True
+data is number		==>	return False
+data is not number 	==>	return True
+
+and	equal	&&
+age = 27
+if age > 20 and age < 30
+
+or equal	||
+if age < 30 or age > 60
+
+print('-' * 20) ==> --------------------
+
+============================================================================================
+name = input("Enter file name: ")
+handle = open(name)
+
+counts = dict()
+for line in handle:
+    words = line.split()
+    for word in words:
+        counts[word] = counts.get(word,0) + 1
+
+bigCount = None
+bigWord = None
+
+for word,count in counts.items():
+    if bigCount is None or count > bigCount:
+        bigWord = word
+        bigCount = count
+
+print(bigWord, bigCount)
+============================================================================================
