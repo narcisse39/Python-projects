@@ -7,14 +7,20 @@ except:
     print('Wrong file name enter!')
     exit()
 
-text_list = list()
 for line in fhandle:
     words = line.split()
-    text_list.append(words)
+   
     for word in words:
         counts[word]=counts.get(word,0)+1
 
-print(counts)
-print()
-print(text_list)
+bigWord = None
+bigCount = None
 
+for word, count in counts.items():
+    if bigCount is None or count > bigCount:
+        bigWord = word
+        bigCount = count
+
+print('Big word', bigWord,' Big count', bigCount)
+print()
+print(counts)
