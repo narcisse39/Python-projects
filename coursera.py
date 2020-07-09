@@ -1,29 +1,34 @@
-fname = input('Enter file name: ')
-
+fname = 'mbox-short.txt'
 try:
-    fhandle = open(fname)
+    fhand = open(fname)
     counts = dict()
+    lst_item = list()
 except:
-    print('file cannot be open!')
+    print('File cannot be opened:', fname)
     exit()
 
-for line in fhandle:
+for line in fhand:
     line = line.rstrip()
     if not line.startswith('From '):
         continue
     words = line.split()
-   
-    counts[words[1]]=counts.get(words[1],0) + 1
+    _hour = words[5].split(':')
+    counts[_hour[0]] = counts.get(_hour[0], 0) + 1
 
-bigWord = None
-bigCount = None
+print(counts)
 
-for word, count in counts.items():
-	##word = keys, count = values
-    if bigCount is None or count > bigCount:
-	##bigCount is None => first word
-        bigWord = word
-        bigCount = count
+for key,val in counts.items():
+	newtup = (val,key)
+	lst_item.append(newtup)
 
-print(bigWord,bigCount)
+print('='*60)
+print('Flipped\n',lst_item)
+
+print('='*60)
+lst_item = sorted(lst_item)
+print('Sorted\n',lst_item)
+
+print('='*60)
+for value,key in lst_item:
+	print(key,value)
 
